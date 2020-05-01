@@ -1,0 +1,41 @@
+<% include ../partials/header %>
+    <div class="row">
+        <h1 style="text-align: center">Enter a new Hospital</h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/hospitals" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input class="form-control" type="text" name="name" id="name" placeholder="Name of Hospital">
+                </div>
+                <div class="form-group">
+                    <label for="image">Image Url</label>
+                    <input class="form-control" type="text" name="image" id="image" placeholder="Image url">
+                </div>
+                <div class="form-group">
+                        <label for="description">Description</label>
+                        <input class="form-control" type="text" name="description" id="description" placeholder="Description">
+                </div>
+                <div class="form-group">
+                    <label for="cost">Category</label>
+                    <input class="form-control" type="category" name="category" id="category" placeholder="Category/Specialization">
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input class="form-control" type="text" name="location" id="location" placeholder="Address/Location">
+                </div>
+                <div class="form-group">
+                        <label for="contact">Contact</label>
+                        <input class="form-control" type="text" name="contact" id="contact" placeholder="contact">
+                    </div>
+                   
+               
+                <div class="form-group">
+                    <button class="btn btn-sm btn-primary center-block">Submit!</button>
+                </div>
+            </form>
+            <a href="/hospitals">Go Back</a>
+        </div>
+    </div>
+</body>
+</html>
+

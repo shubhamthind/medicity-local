@@ -1,0 +1,81 @@
+<% include ../partials/header %> 
+
+
+ <div class="container">
+     <header class="jumbotron">
+         <div class="container">
+             <h1>Welcome to MediCity Jalandhar <i class="fa fa-heartbeat"></i></h1>
+             <p>A Catalogue of top hospitals in Jalandhar, the city with largest number of hospitals in South Asia!</p>
+             <% if(currentUser&&currentUser.isAdmin){  %>
+             <p>
+                <a class="btn btn-primary btn-large" href="/hospitals/new">Add New Hospital</a>
+             </p>
+            <% } %>
+
+    
+         </div>
+     </header>
+     
+    
+     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% hospitals.forEach(function(hospital){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                   <img src="<%= hospital.image %>">
+                   <div class="caption">
+                       <h4><%= hospital.name %></h4>
+                   </div>
+                   <p>
+                       <a href="/hospitals/<%= hospital._id %>" class="btn btn-primary">More Info</a>
+                   </p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+    <div class="row text-center"> 
+            <% if (pages && pages > 0) { %>
+            <ul class="pagination text-center">
+                <% if (current == 1) { %>
+                <li class="disabled"><a>First</a></li>
+                <% } else { %>
+                <li><a href="/hospitals">First</a></li>
+                <% } %>
+         
+                <% if (current == 1) { %>
+                <li class="disabled"><a>«</a></li>
+                <% } else { %>
+                <li><a href="/hospitals?page=<%= Number(current) - 1 %>">«</a></li>
+                <% } %>
+         
+                <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                <% if (i !== 1) { %>
+                <li class="disabled"><a>...</a></li>
+                <% } %>
+                <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                <% if (i == current) { %>
+                <li class="active"><a><%= i %></a></li>
+                <% } else { %>
+                <li><a href="/hospitals?page=<%= i %>"><%= i %></a></li>
+                <% } %>
+                <% if (i == Number(current) + 4 && i < pages) { %>
+                <li class="disabled"><a>...</a></li>
+                <% } %>
+                <% } %>
+         
+                <% if (current == pages) { %>
+                <li class="disabled"><a>»</a></li>
+                <% } else { %>
+                <li><a href="/hospitals?page=<%= Number(current) + 1 %>">»</a></li>
+                <% } %>
+         
+                <% if (current == pages) { %>
+                <li class="disabled"><a>Last</a></li>
+                <% } else { %>
+                <li><a href="/hospitals?page=<%= pages %>">Last</a></li>
+                <% } %>
+            </ul>
+            <% } %>
+        </div>
+</div>
+
+<% include ../partials/footer %>

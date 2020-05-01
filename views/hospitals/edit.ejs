@@ -1,0 +1,40 @@
+<% include ../partials/header %>
+    <div class="row">
+        <h1 style="text-align: center">Edit <%= hospital.name %></h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/hospitals/<%=hospital._id%>?_method=PUT" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input class="form-control" type="text" name="hospital[name]" id="name" value="<%= hospital.name %>">
+                </div>
+                <div class="form-group">
+                    <label for="image">Image Url</label>
+                    <input class="form-control" type="text" name="hospital[image]" id="image" placeholder="image-url" value="<%= hospital.image %>" required>
+                </div>
+                <div class="form-group">
+                        <label for="description">Description</label>
+                        <input class="form-control" type="text" name="hospital[description]" id="description" value="<%= hospital.description %>">
+                </div>
+                <div class="form-group">
+                    <label for="cost">Category</label>
+                    <input class="form-control" type="text" name="hospital[category]" id="category" value="<%= hospital.category %>" >
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input class="form-control" type="text" name="hospital[location]" id="location" value="<%= hospital.location %>">
+                </div>
+                <div class="form-group">
+                    <label for="contact">Contact</label>
+                     <input class="form-control" type="text" name="hospital[contact]" id="contact" value="<%= hospital.contact %>">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-sm btn-primary center-block">Update!</button>
+                </div>
+            </form>
+            <a href="/hospitals">Go Back</a>
+        </div>
+    </div>
+
+</body>
+</html>
+

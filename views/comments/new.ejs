@@ -1,0 +1,18 @@
+<% include ../partials/header %>
+    <div class="row">
+        <h1 style="text-align: center">Add New Comment to <%= hospital.name %></h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/hospitals/<%= hospital._id %>/comments" method="POST">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="comment[text]" placeholder="text">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-sm btn-primary center-block">Submit!</button>
+                </div>
+            </form>
+            <a href="/hospitals">Go Back</a>
+        </div>
+    </div>
+
+</body>
+</html>
